@@ -3,7 +3,6 @@ import Button from "react-bootstrap/Button";
 import { useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 import { UserContext } from "../../components/context/userContext"
-import "bootstrap/dist/css/bootstrap.min.css";
 import { useMutation, useQuery } from 'react-query';
 import { API } from '../config/api';
 
@@ -40,7 +39,7 @@ function DetailProduct() {
     settoppingID(toppingId);
   };
 
-  console.log(toppingID)
+  // console.log(toppingID)
 
   let { data: product } = useQuery('productCache', async () => {
     const res = await API.get(`/product/${id}`)

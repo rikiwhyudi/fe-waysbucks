@@ -10,7 +10,6 @@ import { useNavigate } from "react-router-dom";
 
 function Cart() {
   let navigate = useNavigate();
-  // const [popUp] = useState(false);
   const idr = new Intl.NumberFormat("id-ID")
   
   let { data: cart, refetch } = useQuery("cartsCache", async () => {
@@ -186,15 +185,6 @@ console.log(form)
         </div>
       </div>
     </div>
-    {/* {popUp && 
-      <section className="modal fixed z-index-3 w100 h100 flex jc-center ai-center"
-      
-      >
-    <div className="notification-background">
-      <h5>Thank you for ordering in us, please wait to verify your order</h5>
-    </div>
-      </section>
-    } */}
     </>
   );
 }
