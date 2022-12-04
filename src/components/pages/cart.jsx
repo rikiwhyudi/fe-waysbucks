@@ -4,15 +4,16 @@ import Header from "../moduls/header";
 import React, { useEffect } from "react";
 import { useMutation, useQuery } from 'react-query';
 import { API } from '../config/api';
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 
 
 function Cart() {
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
   const idr = new Intl.NumberFormat("id-ID")
-  
-  let { data: cart, refetch } = useQuery("cartsCache", async () => {
+
+  // refetch
+  let { data: cart } = useQuery("cartsCache", async () => {
     const response = await API.get("/carts");
     return response.data.data;
   });
@@ -21,7 +22,7 @@ function Cart() {
     return item.transaction_id === null
   })
 
-  // console.log(dataCarts)
+  console.log("datacart:", dataCarts)
  
   let resultTotal = dataCarts?.reduce((addition, b) => {
     return addition + b.sub_amount;
@@ -32,7 +33,7 @@ function Cart() {
       amount: resultTotal,
     };
 
-console.log(form)
+console.log("form:", form)
 
   const handleSubmit = useMutation(async (e) => {
     
@@ -60,12 +61,12 @@ console.log(form)
         /* You may add your own implementation here */
 
         console.log(result);
-        navigate("/profile");
+        // navigate("/profile");
       },
       onPending: function (result) {
         /* You may add your own implementation here */
         console.log(result);
-        navigate("/profile");
+        // navigate("/profile");
       },
       onError: function (result) {
         /* You may add your own implementation here */
@@ -85,8 +86,8 @@ console.log(form)
     //change this to the script source you want to load, for example this is snap.js sandbox env
     const midtransScriptUrl = "https://app.sandbox.midtrans.com/snap/snap.js";
     //change this according to your client-key
-    const myMidtransClientKey = "SB-Mid-client-8GBlOlIZLs7yEVF3";
-    // const myMidtransClientKey = process.env.REACT_APP_MIDTRANS_CLIENT_KEY;
+    // const myMidtransClientKey = "SB-Mid-client-8GBlOlIZLs7yEVF3";
+    const myMidtransClientKey = process.env.REACT_APP_MIDTRANS_CLIENT_KEY;
 
     let scriptTag = document.createElement("script");
     scriptTag.src = midtransScriptUrl;
@@ -186,24 +187,24 @@ console.log(form)
         <div>
               <Form>
                 <Form.Group className="mb-3">
-                  <Form.Control className='input' type="text" placeholder="Name"  />
+                  <Form.Control className='input' type="text" placeholder="Name"  disabled/>
                 </Form.Group>
 
                 <Form.Group className="mb-3">
-                  <Form.Control className='input' type="email" placeholder="Enter email" />
+                  <Form.Control className='input' type="email" placeholder="Enter email" disabled />
                 </Form.Group>
 
 
                 <Form.Group className="mb-3">
-                  <Form.Control className='input' type="text" placeholder="Phone" />
+                  <Form.Control className='input' type="text" placeholder="Phone" disabled/>
                 </Form.Group>
 
                 <Form.Group className="mb-3">
-                  <Form.Control className='input' type="text" placeholder="Pos Code" />
+                  <Form.Control className='input' type="text" placeholder="Pos Code" disabled/>
                 </Form.Group>
 
                 <Form.Group className="mb-3">
-                  <Form.Control className='input' as="textarea" rows={6} placeholder="Address" />
+                  <Form.Control className='input' as="textarea" rows={6} placeholder="Address" disabled/>
                 </Form.Group>
               </Form>
               <Button variant="danger" type="submit" className="add-cart" onClick={(e) => handleSubmit.mutate(e)}>

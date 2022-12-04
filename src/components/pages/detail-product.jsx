@@ -59,6 +59,8 @@ function DetailProduct() {
   }, 0);
 
   let sub_amount = product?.price + ToppingTotal;
+  
+  console.log(sub_amount)
 
   const handleSubmit = useMutation(async (e) => {
     try {

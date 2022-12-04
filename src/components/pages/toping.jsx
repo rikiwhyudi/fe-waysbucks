@@ -69,7 +69,7 @@ export function AddToping() {
     <Header />
     <main className="after-nav">
         <section className="pt3 flex jc-between ai-start">
-            <form className="w100 flex-col mx5"
+            <form className="w50 flex-col mx5"
             onSubmit={ (e) => handleSubmit.mutate(e) }
             >
                 <h2 className="mb3 txt-red fw700">Toping</h2>

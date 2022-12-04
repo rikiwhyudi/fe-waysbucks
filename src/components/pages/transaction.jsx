@@ -3,7 +3,8 @@ import Header from "../moduls/header"
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/userContext"
 import { API } from "../config/api";
-import dateFormat from 'dateformat'
+import success from "../../assets/ceklis.svg"
+import failed from "../../assets/cancel.svg"
 
 export default function Income() {
   const navigate = useNavigate()
@@ -28,13 +29,24 @@ export default function Income() {
       getTransaction()
     }
   },[])
+
+  console.log(transaction)
+
+    //  const handleApprove = (id) => {
+    //   alert("langsung success kalo pay selesai..")
+    //  }
+
+ const handleClick = (id) => {
+  alert("Oops.!!")
+ }
+
   return (
     <>
     <Header />
     <main className="after-nav pb5">
       <section className="pt4 mx5">
           <h1 className="txt-red mb2-5">Income Transaction</h1>
-          <table>
+          <table className="w-100">
             <thead className="bg-gray">
               <tr>
                 <th>No.</th>
@@ -42,7 +54,7 @@ export default function Income() {
                 <th>Product</th>
                 <th>Income</th>
                 <th>Status</th>
-                <th>Date</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
@@ -54,12 +66,24 @@ export default function Income() {
                 <h6 className="productIncome" key={index}>
                     {data.product.title}, </h6>
                     ))}</td>
-                <td>Rp {idr.format(data.amount)}</td>
+                <td>Rp.{idr.format(data.amount)}</td>
                 <td>{data.status}</td>
-                <td>
-                <h6 className="productIncome" key={index}>
-                    {dateFormat(data.updated_at, 'd mmmm yyyy')}</h6>
-                    </td>
+                <td align="center">
+                  { (data.status === "success") ?
+                    <img src={success} alt="payment-success" /> 
+                    :
+                    <>
+                    { (data.status === "failed") ? 
+                       <img src={failed} alt="payment-failed" />
+                      :
+                      <>  
+                      <button onClick={() => handleClick()} className="btn btn-danger me-2 btn-sm">cancel</button>
+                      <button  onClick={() => handleClick()} className="btn btn-success btn-sm">approve</button>
+                      </>
+                    }
+                    </>
+                  } 
+                </td>
               </tr>
               ))}
             </tbody>

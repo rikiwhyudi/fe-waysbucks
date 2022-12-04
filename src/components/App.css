@@ -701,6 +701,7 @@ button:hover {
 
 .trash-cart{
     color: #BD0707;
+    cursor: pointer;
 }
 
 .right-cart-container{
@@ -770,4 +771,8 @@ button:hover {
 
 h4{
     font-size: 12px;
+}
+
+.btn-sm{
+    width: 80px;
 }
