@@ -105,10 +105,10 @@ function Profile() {
               <img
                 className="qr-code"
                 src={qrCode}
-                alt=""
+                alt="qr"
                 />
             </div>
-            <div className="status-order">
+            <div className="status-order pe-4">
               <h6>{data.status}</h6>
             </div>
             </div>
