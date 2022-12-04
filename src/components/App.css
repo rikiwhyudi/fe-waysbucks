@@ -624,11 +624,19 @@ button:hover {
     font-size: 18px;
 }
 
+.line-review-cart{
+    border-top-style: solid;
+    border-width: 1px 0;
+    border-color: #BD0707;
+    margin-bottom: 0.5rem;
+}
+
 .line-cart{
     border-style: solid;
     border-width: 1px 0;
-    border-color: #974A4A;
+    border-color: #BD0707;
     margin-bottom: 0.5rem;
+
 }
 
 .main-cart{
@@ -724,7 +732,7 @@ button:hover {
 
 .detail-payment-cart{
     height: 2rem;
-    width: 20rem;
+    width: 40rem;
     display: flex;
     justify-content: space-between;
     margin-bottom: 0.3rem;
@@ -742,7 +750,7 @@ button:hover {
 
 .quantity-title-cart{
     height: 2rem;
-    width: 20rem;
+    width: 40rem;
     display: flex;
     justify-content: space-between;
     color: #BD0707;
@@ -763,4 +771,3 @@ button:hover {
 h4{
     font-size: 12px;
 }
-

@@ -1,5 +1,5 @@
 import bin from "../../assets/bin.svg";
-import Button from "react-bootstrap/Button";
+import { Form, Button } from "react-bootstrap";
 import Header from "../moduls/header";
 import React, { useEffect } from "react";
 import { useMutation, useQuery } from 'react-query';
@@ -109,7 +109,7 @@ console.log(form)
       <div className="cart-container">
         <div className="left-cart-container">
           <h6>Review Your Order</h6>
-          <div className="line-cart">
+          <div className="line-review-cart">
             {cart?.map((data, index) =>(
             <div className="main-cart" key={index}>
               <div className="picture-menu-cart">
@@ -147,8 +147,7 @@ console.log(form)
             </div>
             ))}
           </div>
-        </div>
-        <div className="right-cart-container">
+
           <div className="line-cart">
             <div className="data-payment">
               <div className="detail-payment-cart">
@@ -169,6 +168,7 @@ console.log(form)
               </div>
             </div>
           </div>
+
           <div className="total-cart-detail">
             <div className="total-detail txt-red">
               <div>
@@ -178,9 +178,37 @@ console.log(form)
                 <h6>Rp.{idr.format(resultTotal)}</h6>
               </div>
             </div>
-            <Button variant="danger" type="submit" className="add-cart" onClick={(e) => handleSubmit.mutate(e)}>
-              Pay
-            </Button>
+          </div>
+
+        </div>
+
+        <div className="right-cart-container">
+        <div>
+              <Form>
+                <Form.Group className="mb-3">
+                  <Form.Control className='input' type="text" placeholder="Name"  />
+                </Form.Group>
+
+                <Form.Group className="mb-3">
+                  <Form.Control className='input' type="email" placeholder="Enter email" />
+                </Form.Group>
+
+
+                <Form.Group className="mb-3">
+                  <Form.Control className='input' type="text" placeholder="Phone" />
+                </Form.Group>
+
+                <Form.Group className="mb-3">
+                  <Form.Control className='input' type="text" placeholder="Pos Code" />
+                </Form.Group>
+
+                <Form.Group className="mb-3">
+                  <Form.Control className='input' as="textarea" rows={6} placeholder="Address" />
+                </Form.Group>
+              </Form>
+              <Button variant="danger" type="submit" className="add-cart" onClick={(e) => handleSubmit.mutate(e)}>
+                Pay
+              </Button>
           </div>
         </div>
       </div>
