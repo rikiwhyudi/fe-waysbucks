@@ -4,12 +4,12 @@ import Header from "../moduls/header";
 import React, { useEffect } from "react";
 import { useMutation, useQuery } from 'react-query';
 import { API } from '../config/api';
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 
 function Cart() {
-  // let navigate = useNavigate();
+  let navigate = useNavigate();
   const idr = new Intl.NumberFormat("id-ID")
 
   // refetch
