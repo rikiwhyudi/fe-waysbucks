@@ -51,6 +51,7 @@ export default function Income() {
               <tr>
                 <th>No.</th>
                 <th>Name</th>
+                <th>Address</th>
                 <th>Product</th>
                 <th>Income</th>
                 <th>Status</th>
@@ -62,6 +63,7 @@ export default function Income() {
               <tr>
                 <td>{index+1}</td>
                 <td>{data.user.name}</td>
+                <td>-</td>
                 <td>{data.cart.map((data,index)=>(
                 <h6 className="productIncome" key={index}>
                     {data.product.title}, </h6>
